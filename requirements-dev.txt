@@ -5,3 +5,5 @@ mlflow
 dagshub
 dvc
 lightgbm 
+fastapi
+uvicorn
