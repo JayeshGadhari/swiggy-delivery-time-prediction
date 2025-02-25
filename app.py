@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI # type: ignore
 from pydantic import BaseModel
 from sklearn.pipeline import Pipeline
-import uvicorn
+import uvicorn # type: ignore
 import pandas as pd
 import mlflow
 import json
