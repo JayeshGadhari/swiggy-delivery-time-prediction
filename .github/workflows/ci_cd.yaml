@@ -5,6 +5,9 @@ on: push
 jobs:
   CI-CD:
     runs-on: ubuntu-latest
+    env:
+      DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
+      DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_USER_TOKEN }}
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
@@ -22,9 +25,6 @@ jobs:
           pip install pytest dvc dvc-http
 
       - name: Configure DVC for DagsHub
-        env:
-          DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
-          DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
         run: |
           dvc remote modify myremote url https://dagshub.com/JayeshGadhari/swiggy-delivery-time-prediction.dvc
           dvc remote modify myremote auth basic
