@@ -22,7 +22,6 @@ jobs:
 
       - name: DVC Checkout from Local Storage
         run: |
-          dvc remote add myremote /tmp/Jay-storage
           dvc pull --remote myremote
           dvc checkout
 
