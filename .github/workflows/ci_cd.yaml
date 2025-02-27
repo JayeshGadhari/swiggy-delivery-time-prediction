@@ -24,11 +24,12 @@ jobs:
       - name: Configure DVC for DagsHub
         env:
           DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+          DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
         run: |
           dvc remote modify myremote url https://dagshub.com/JayeshGadhari/swiggy-delivery-time-prediction.dvc
           dvc remote modify myremote auth basic
-          dvc remote modify myremote user ${{ secrets.DAGSHUB_USER }}
-          dvc remote modify myremote password ${{ secrets.DAGSHUB_TOKEN }}
+          dvc remote modify myremote user "${DAGSHUB_USER}"
+          dvc remote modify myremote password "${DAGSHUB_USER_TOKEN}"
 
       - name: DVC Pull from DagsHub
         run: |
@@ -36,21 +37,15 @@ jobs:
           dvc checkout --force || echo "⚠️ Some files may not have checked out properly!"
 
       - name: Test Model Registry
-        env:
-          DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           pytest tests/test_model_registry.py
 
       - name: Test Model Performance
-        env:
-          DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           pytest tests/test_model_perf.py
 
       - name: Promote Model
         if: success()
-        env:
-          DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
           python scripts/promote_model_to_prod.py
 
