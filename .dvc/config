@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:/Users/user/AppData/Local/Temp/Jay-storage
+    url = https://dagshub.com/JayeshGadhari/swiggy-delivery-time-prediction.dvc
