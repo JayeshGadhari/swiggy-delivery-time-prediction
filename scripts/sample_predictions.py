@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 from pathlib import Path
 
-# path for data
+# path for data 
 root_path = Path(__file__).parent.parent
 data_path = root_path / "data" / "raw" / "swiggy.csv"
 
