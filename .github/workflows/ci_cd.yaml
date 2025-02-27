@@ -22,7 +22,8 @@ jobs:
 
       - name: DVC Checkout from Local Storage
         run: |
-          dvc pull --remote origin 
+          dvc remote add myremote /tmp/Jay-storage
+          dvc pull --remote myremote
           dvc checkout
 
       - name: Test Model Registry
