@@ -21,6 +21,14 @@ jobs:
           pip install -r requirements-dev.txt
           pip install pytest  # Ensure pytest is installed
 
+      - name: Verify run_information.json Exists
+        run: |
+          if [ -f run_information.json ]; then
+            echo "✅ run_information.json found!"
+          else
+            echo "❌ run_information.json is missing!" && exit 1
+          fi
+
       - name: Check Installed Packages
         run: pip list  # Debugging step (optional)
 
