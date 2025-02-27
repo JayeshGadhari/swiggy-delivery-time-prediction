@@ -22,6 +22,7 @@ jobs:
 
       - name: DVC Checkout from Local Storage
         run: |
+          dvc pull --remote origin 
           dvc checkout
 
       - name: Test Model Registry
