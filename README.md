@@ -3,6 +3,11 @@ Swiggy-Delivery-Time-Prediction
 
 Build ML project that predicts food delivery time in minutes
 
+
+🚀 Project Overview
+
+This project aims to predict food delivery times for Swiggy orders based on various factors such as restaurant location, delivery distance, traffic conditions, and order preparation time. The project uses DVC for data versioning, MLflow for experiment tracking, and FastAPI for serving the model as an API.
+
 Project Organization
 ------------
 
