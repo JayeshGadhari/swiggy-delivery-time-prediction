@@ -25,6 +25,9 @@ jobs:
           pip install pytest dvc dvc-http
 
       - name: Configure DVC for DagsHub
+        env:
+          DAGSHUB_USER_TOKEN: ${{ secrets.DAGSHUB_USER_TOKEN }}
+          DAGSHUB_USER: ${{ secrets.DAGSHUB_USER }}
         run: |
           dvc remote modify myremote url https://dagshub.com/JayeshGadhari/swiggy-delivery-time-prediction.dvc
           dvc remote modify myremote auth basic

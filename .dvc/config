@@ -2,3 +2,6 @@
     remote = myremote
 ['remote "myremote"']
     url = https://dagshub.com/JayeshGadhari/swiggy-delivery-time-prediction.dvc
+    user = JayeshGadhari
+    password = 2d5e8f85ed5b9c2f8bb898c84f4c39220a3eeb97
+    auth = basic
